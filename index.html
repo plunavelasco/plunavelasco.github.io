@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paula Luna-Velasco · Mathematics</title>
+<meta name="description" content="Paula Luna-Velasco, PhD student in Mathematics at the University of Seville. Analysis, PDEs and fluid mechanics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6F6; --surface:#FFFFFF; --ink:#16242C; --muted:#56676F; --rule:#D3DCDF;
+  --fluid-a:#1E4E66; --fluid-b:#D9E7EC; --accent:#1B6585; --faint:#788A92; --wave-a:#A9C6D3; --wave-b:#E3EDF1;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E171C; --surface:#13212A; --ink:#E2EBEE; --muted:#9AACB3; --rule:#263843;
+    --fluid-a:#6CB1CE; --fluid-b:#18303B; --accent:#86C6E0; --faint:#7F939B; --wave-a:#2C5263; --wave-b:#16262E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E171C; --surface:#13212A; --ink:#E2EBEE; --muted:#9AACB3; --rule:#263843;
+  --fluid-a:#6CB1CE; --fluid-b:#18303B; --accent:#86C6E0; --faint:#7F939B; --wave-a:#2C5263; --wave-b:#16262E; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1rem);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+img{max-width:100%}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.5rem}
+
+/* Hero */
+header.hero{padding:3.5rem 0 0}
+.intro{display:grid;grid-template-columns:11rem 1fr;gap:2.25rem;align-items:end}
+.photo{margin:0;aspect-ratio:4/5;width:100%;border-radius:3px;overflow:hidden;background:var(--fluid-b);display:grid;place-items:center;border:1px solid var(--rule)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+h1{font-weight:500;font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.02;margin:0 0 .6rem;letter-spacing:-.015em;font-variation-settings:"opsz" 72}
+.role{font-size:1.25rem;margin:0 0 .9rem;color:var(--ink)}
+.meta{font-family:var(--sans);font-size:.9rem;color:var(--muted);margin:0;line-height:1.7}
+.meta a{color:var(--accent)}
+.meta .sep{margin:0 .5rem;color:var(--faint)}
+
+.interface{display:block;width:100%;height:clamp(40px,6vw,60px);margin-top:2.5rem;border-radius:2px}
+.interface .a{fill:var(--wave-a)}
+.interface .b{fill:var(--wave-b)}
+.caption{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin:.5rem 0 0;text-align:right}
+
+nav.toc{font-family:var(--sans);font-size:.9rem;margin:2.25rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem}
+nav.toc a{color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--accent);text-decoration:underline}
+
+/* Sections */
+main section{padding:3rem 0 0}
+h2{font-weight:500;font-size:1.7rem;margin:0 0 1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);font-variation-settings:"opsz" 40}
+.lede{font-size:1.15rem;line-height:1.6;max-width:38rem;margin:0}
+.lede + .lede{margin-top:1rem}
+
+ol.entries,ul.entries{list-style:none;margin:0;padding:0}
+.entries li{display:grid;grid-template-columns:9.5rem 1fr;gap:1.25rem;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.entries li:last-child{border-bottom:0}
+.when{font-family:var(--sans);font-size:.85rem;color:var(--muted);padding-top:.2rem;font-variant-numeric:tabular-nums}
+.what{margin:0}
+.what strong{font-weight:600}
+.sub{display:block;font-family:var(--sans);font-size:.88rem;color:var(--muted);margin-top:.15rem;line-height:1.5}
+.tag{font-family:var(--sans);font-size:.75rem;color:var(--accent);border:1px solid currentColor;border-radius:2px;padding:0 .35rem;margin-left:.4rem;white-space:nowrap;vertical-align:.1em}
+
+ul.compact{list-style:none;margin:0;padding:0}
+.compact li{display:grid;grid-template-columns:9.5rem 1fr;gap:1.25rem;padding:.3rem 0;line-height:1.5}
+.compact .when{padding-top:.15rem}
+.compact .at{font-family:var(--sans);font-size:.88rem;color:var(--muted)}
+.pubs li{grid-template-columns:2.5rem 1fr}
+.pubs .when{font-size:.95rem}
+.pubs .title{font-style:italic}
+
+.note{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin:.9rem 0 0}
+
+footer{margin:4rem 0 0;padding:2rem 0 3rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.88rem;color:var(--muted)}
+footer address{font-style:normal;line-height:1.7}
+
+@media (max-width:640px){
+  body{font-size:1.06rem}
+  header.hero{padding-top:2rem}
+  .intro{grid-template-columns:7.5rem 1fr;gap:1.25rem;align-items:center}
+  .role{font-size:1.08rem}
+  .entries li,.pubs li{grid-template-columns:1fr;gap:.15rem}
+  .compact li{grid-template-columns:6.5rem 1fr;gap:.75rem}
+  .pubs li{grid-template-columns:2rem 1fr;gap:.5rem}
+}
+@media (max-width:420px){
+  .intro{grid-template-columns:1fr}
+  .photo{width:9rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="intro">
+    <figure class="photo" id="foto">
+      <img src="photo.jpg" width="560" height="700" alt="Portrait of Paula Luna-Velasco">
+    </figure>
+    <div>
+      <h1>Paula Luna-Velasco</h1>
+      <p class="role">PhD student in Mathematics, University of Seville</p>
+      <p class="meta">IMUS, University of Seville &amp; IMAG, University of Granada<br>
+      <a class="em" data-u="pluna" data-d="us.es">pluna [at] us.es</a><span class="sep">·</span><a href="cv.pdf">CV</a><span class="sep">·</span><a href="https://arxiv.org/a/lunavelasco_p_1">arXiv</a><span class="sep">·</span><a href="https://orcid.org/0009-0002-9995-8376">ORCID</a></p>
+    </div>
+  </div>
+
+  <svg class="interface" viewBox="0 0 1200 160" preserveAspectRatio="none" role="img" aria-label="Illustration of an unstable interface between two fluids, with fingers of one fluid advancing into the other">
+    <rect class="b" x="0" y="0" width="1200" height="160"/>
+    <path class="a" d="M0,0 L0,50 C12.8,50 25.6,50 25.6,56 C25.6,116.1 25.6,144.4 47.6,144.4 C69.7,144.4 69.7,116.1 69.7,56 C82.7,50 95.7,50 95.7,56 C95.7,98.6 95.7,119.5 116.8,119.5 C138.0,119.5 138.0,98.6 138.0,56 C146.7,50 155.5,50 155.5,56 C155.5,100.8 155.5,122.6 176.7,122.6 C197.9,122.6 197.9,100.8 197.9,56 C215.8,50 233.7,50 233.7,56 C233.7,83.9 233.7,98.5 247.4,98.5 C261.1,98.5 261.1,83.9 261.1,56 C268.5,50 275.8,50 275.8,56 C275.8,104.1 275.8,127.3 302.4,127.3 C329.0,127.3 329.0,104.1 329.0,56 C335.6,50 342.2,50 342.2,56 C342.2,118.2 342.2,147.4 371.9,147.4 C401.6,147.4 401.6,118.2 401.6,56 C417.4,50 433.2,50 433.2,56 C433.2,76.4 433.2,87.7 456.3,87.7 C479.4,87.7 479.4,76.4 479.4,56 C485.6,50 491.8,50 491.8,56 C491.8,71.3 491.8,80.4 513.3,80.4 C534.9,80.4 534.9,71.3 534.9,56 C543.7,50 552.6,50 552.6,56 C552.6,69.8 552.6,78.2 568.9,78.2 C585.3,78.2 585.3,69.8 585.3,56 C598.2,50 611.2,50 611.2,56 C611.2,111.8 611.2,138.3 631.1,138.3 C651.0,138.3 651.0,111.8 651.0,56 C664.8,50 678.6,50 678.6,56 C678.6,94.1 678.6,113.0 702.1,113.0 C725.7,113.0 725.7,94.1 725.7,56 C741.6,50 757.5,50 757.5,56 C757.5,82.6 757.5,96.6 777.8,96.6 C798.0,96.6 798.0,82.6 798.0,56 C819.0,50 839.9,50 839.9,56 C839.9,111.7 839.9,138.2 869.9,138.2 C899.8,138.2 899.8,111.7 899.8,56 C916.4,50 933.0,50 933.0,56 C933.0,80.1 933.0,93.0 950.7,93.0 C968.4,93.0 968.4,80.1 968.4,56 C978.7,50 989.0,50 989.0,56 C989.0,107.9 989.0,132.7 1002.3,132.7 C1015.6,132.7 1015.6,107.9 1015.6,56 C1027.6,50 1039.6,50 1039.6,56 C1039.6,88.2 1039.6,104.6 1066.8,104.6 C1094.1,104.6 1094.1,88.2 1094.1,56 C1094.1,50 1200,50 1200,50 L1200,0 Z"/>
+  </svg>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#about">About me</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+    <a href="#stays">Research stays</a>
+    <a href="#education">Education</a>
+    <a href="#teaching">Teaching</a>
+  </nav>
+</header>
+
+<main>
+<section id="about">
+  <h2>About me</h2>
+  <p class="lede">I am a PhD student in Mathematics at the Institute of Mathematics of the University of Seville (IMUS). My thesis, <em>Fluid Interfaces: Well-Posedness, Regularity and Instabilities</em>, is supervised by Francisco Gancedo and Eduardo García-Juárez. Prior to that, I completed my Master’s degree at the Complutense University of Madrid (UCM) and my Bachelor’s degree at the University of Seville.</p>
+  <p class="lede">My research is in the analysis of partial differential equations arising in fluid mechanics. I am particularly interested in free boundary problems for incompressible fluids, such as the moving interface between two fluids and the instabilities that can develop along it. More broadly, I enjoy exploring new problems in PDEs and fluid dynamics, and I am always open to learning from neighbouring areas.</p>
+  <p class="lede">Beyond research, I enjoy sharing mathematics with young students through talks and workshops in schools, with a particular interest in encouraging girls to pursue science.</p>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+  <ol class="entries pubs">
+    <li><span class="when">[2]</span><p class="what"><span class="title">Mixing zone dynamics for the Saffman–Taylor instability with viscosity jump</span>, with F. Mengual.<span class="sub">Preprint, 2026.</span></p></li>
+    <li><span class="when">[1]</span><p class="what"><span class="title">On 2D Navier–Stokes free boundary: nonnegative density and small viscosity contrast</span>, with F. Gancedo and E. García-Juárez.<span class="sub">Submitted, 2025. <a href="https://arxiv.org/abs/2507.09333">arXiv:2507.09333</a></span></p></li>
+  </ol>
+</section>
+
+<section id="talks">
+  <h2>Upcoming and recent talks</h2>
+  <ul class="entries">
+    <li><span class="when">Jan 2027</span><p class="what">RSME Young Researchers Congress<span class="tag">upcoming</span><span class="sub">Zaragoza, Spain</span></p></li>
+    <li><span class="when">Nov 2026</span><p class="what">Seminar at the Instituto de Ciencias Matemáticas (ICMAT)<span class="tag">upcoming</span><span class="sub">Madrid, Spain</span></p></li>
+    <!-- Pending confirmation:
+    <li><span class="when">Nov 2026</span><p class="what">Seminar at the University of Granada (UGR)<span class="tag">upcoming</span><span class="sub">Granada, Spain</span></p></li>
+    -->
+    <li><span class="when">Jul 2026</span><p class="what">XXIX CEDYA / XIX CMA<span class="sub">Valencia, Spain</span></p></li>
+    <li><span class="when">Jun 2026</span><p class="what">Seminar at Dalian University of Technology (DUT)<span class="sub">Dalian, China</span></p></li>
+  </ul>
+</section>
+
+<section id="stays">
+  <h2>Research stays</h2>
+  <ul class="entries">
+    <li><span class="when">Feb–Mar 2027</span><p class="what">Carnegie Mellon University (CMU), Pittsburgh, USA<span class="tag">upcoming</span><span class="sub">Host: Ian Tice.</span></p></li>
+    <li><span class="when">Apr–Jul 2026</span><p class="what">Université Paris-Est Créteil (UPEC), Paris, France<span class="sub">Host: Raphaël Danchin. Funded by the FPI fellowship.</span></p></li>
+    <li><span class="when">Oct–Nov 2024</span><p class="what">Institute for Advanced Study (IAS), Princeton, USA<span class="sub">Invited visitor. Host: Francisco Gancedo.</span></p></li>
+  </ul>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul class="entries">
+    <li><span class="when">2023–2027</span><p class="what">PhD in Mathematics, University of Seville (US &amp; IMUS)<span class="sub">Supervisors: Francisco Gancedo García and Eduardo García-Juárez</span></p></li>
+    <li><span class="when">2022–2023</span><p class="what">Master’s Degree in Advanced Mathematics<span class="sub">Complutense University of Madrid (UCM)</span></p></li>
+    <li><span class="when">2018–2022</span><p class="what">Bachelor’s Degree in Mathematics<span class="sub">University of Seville. Erasmus exchange at Sorbonne University, Paris, 2020–2021</span></p></li>
+  </ul>
+  <p class="note">Fellowship: FPI predoctoral fellowship, María de Maeztu Excellence Unit, IMAG.</p>
+</section>
+
+<section id="teaching">
+  <h2>Teaching</h2>
+  <ul class="compact">
+    <li><span class="when">Oct–Dec 2026</span><span>Mathematics (6 ECTS), <span class="at">BSc in Chemistry, University of Seville</span></span></li>
+    <li><span class="when">Sep 2025–Jan 2026</span><span>Mathematics (6 ECTS), <span class="at">BSc in Chemistry, University of Seville</span></span></li>
+    <li><span class="when">Mar–May 2025</span><span>Elements of Numerical Calculus (2 ECTS), <span class="at">BSc in Statistics, University of Seville</span></span></li>
+    <li><span class="when">Sep–Nov 2024</span><span>Mathematics (4 ECTS), <span class="at">BSc in Chemistry, University of Seville</span></span></li>
+    <li><span class="when">Jan–Jun 2023</span><span>Numerical Analysis (6 ECTS), <span class="at">Engineering, Comillas Pontifical University – ICAI, Madrid</span></span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <address>
+    Paula Luna-Velasco · <a class="em" data-u="pluna" data-d="us.es">pluna [at] us.es</a><br>
+    Edificio Celestino Mutis, 1st floor, Campus de Reina Mercedes<br>
+    Avenida Reina Mercedes s/n, 41012 Seville, Spain
+  </address>
+  <p style="margin:1rem 0 0">Last updated October 2026</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('a.em').forEach(function(a){a.href='mailto:'+a.dataset.u+'\u0040'+a.dataset.d;});
+</script>
+</body>
+</html>
