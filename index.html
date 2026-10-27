@@ -44,6 +44,7 @@ header.hero{padding:3.5rem 0 0}
 .intro{display:grid;grid-template-columns:11rem 1fr;gap:2.25rem;align-items:end}
 .photo{margin:0;aspect-ratio:4/5;width:100%;border-radius:3px;overflow:hidden;background:var(--fluid-b);display:grid;place-items:center;border:1px solid var(--rule)}
 .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.nowrap{white-space:nowrap}
 h1{font-weight:500;font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.02;margin:0 0 .6rem;letter-spacing:-.015em;font-variation-settings:"opsz" 72}
 .role{font-size:1.25rem;margin:0 0 .9rem;color:var(--ink)}
 .meta{font-family:var(--sans);font-size:.9rem;color:var(--muted);margin:0;line-height:1.7}
@@ -111,7 +112,7 @@ footer address{font-style:normal;line-height:1.7}
       <img src="photo.jpg" width="560" height="700" alt="Portrait of Paula Luna-Velasco">
     </figure>
     <div>
-      <h1>Paula Luna-Velasco</h1>
+      <h1>Paula <span class="nowrap">Luna-Velasco</span></h1>
       <p class="role">PhD student in Mathematics, University of Seville</p>
       <p class="meta">IMUS, University of Seville &amp; IMAG, University of Granada<br>
       <a class="em" data-u="pluna" data-d="us.es">pluna [at] us.es</a><span class="sep">·</span><a href="cv.pdf?v=3">CV</a><span class="sep">·</span><a href="https://arxiv.org/a/lunavelasco_p_1">arXiv</a><span class="sep">·</span><a href="https://orcid.org/0009-0002-9995-8376">ORCID</a></p>
@@ -138,13 +139,13 @@ footer address{font-style:normal;line-height:1.7}
   <h2>About me</h2>
   <p class="lede">I am a PhD student in Mathematics at the Institute of Mathematics of the University of Seville (IMUS). My thesis, <em>Fluid Interfaces: Well-Posedness, Regularity and Instabilities</em>, is supervised by Francisco Gancedo and Eduardo García-Juárez. Prior to that, I completed my Master’s degree at the Complutense University of Madrid (UCM) and my Bachelor’s degree at the University of Seville.</p>
   <p class="lede">My research is in the analysis of partial differential equations arising in fluid mechanics. I am particularly interested in free boundary problems for incompressible fluids. More broadly, I enjoy exploring new problems in PDEs and fluid dynamics, and I am always open to learning from neighbouring areas.</p>
-  <p class="lede">Beyond research, I am committed to sharing mathematics with young students through talks and workshops in schools, with a particular interest in encouraging girls to pursue science.</p>
+  <p class="lede">Beyond research, I am committed to sharing mathematics with young students, with a particular interest in encouraging girls to pursue science.</p>
 </section>
 
 <section id="publications">
   <h2>Publications</h2>
   <ol class="entries pubs">
-    <li><span class="when">[2]</span><p class="what"><span class="title">Mixing zone dynamics for the Saffman–Taylor instability with viscosity jump</span>, with F. Mengual.<span class="sub">Preprint, 2026.</span></p></li>
+    <li><span class="when">[2]</span><p class="what"><span class="title">Mixing zone dynamics for the Saffman–Taylor instability with viscosity jump</span>, with F. Mengual.<span class="sub">Preprint, 2026. <a href="https://arxiv.org/abs/2610.34504">arXiv:2610.34504</a></span></p></li>
     <li><span class="when">[1]</span><p class="what"><span class="title">On 2D Navier–Stokes free boundary: nonnegative density and small viscosity contrast</span>, with F. Gancedo and E. García-Juárez.<span class="sub">Submitted, 2025. <a href="https://arxiv.org/abs/2507.09333">arXiv:2507.09333</a></span></p></li>
   </ol>
 </section>
@@ -152,10 +153,10 @@ footer address{font-style:normal;line-height:1.7}
 <section id="talks">
   <h2>Upcoming and recent talks</h2>
   <ul class="entries">
-    <li><span class="when">Jan 2027</span><p class="what">RSME Young Researchers Congress<span class="tag">upcoming</span><span class="sub">Zaragoza, Spain</span></p></li>
-    <li><span class="when">Nov 2026</span><p class="what">Seminar at the Instituto de Ciencias Matemáticas (ICMAT)<span class="tag">upcoming</span><span class="sub">Madrid, Spain</span></p></li>
+    <li><span class="when">Jan 2027</span><p class="what">RSME Young Researchers Congress<span class="tag" data-until="2027-01-31">upcoming</span><span class="sub">Zaragoza, Spain</span></p></li>
+    <li><span class="when">Nov 2026</span><p class="what">Seminar at the Instituto de Ciencias Matemáticas (ICMAT)<span class="tag" data-until="2026-11-30">upcoming</span><span class="sub">Madrid, Spain</span></p></li>
     <!-- Pending confirmation:
-    <li><span class="when">Nov 2026</span><p class="what">Seminar at the University of Granada (UGR)<span class="tag">upcoming</span><span class="sub">Granada, Spain</span></p></li>
+    <li><span class="when">Nov 2026</span><p class="what">Seminar at the University of Granada (UGR)<span class="tag" data-until="2026-11-30">upcoming</span><span class="sub">Granada, Spain</span></p></li>
     -->
     <li><span class="when">Jul 2026</span><p class="what">XXIX CEDYA / XIX CMA<span class="sub">Valencia, Spain</span></p></li>
     <li><span class="when">Jun 2026</span><p class="what">Seminar at Dalian University of Technology (DUT)<span class="sub">Dalian, China</span></p></li>
@@ -165,8 +166,8 @@ footer address{font-style:normal;line-height:1.7}
 <section id="stays">
   <h2>Research stays</h2>
   <ul class="entries">
-    <li><span class="when">Feb–Mar 2027</span><p class="what">Carnegie Mellon University (CMU), Pittsburgh, USA<span class="tag">upcoming</span><span class="sub">Host: Ian Tice.</span></p></li>
-    <li><span class="when">Apr–Jul 2026</span><p class="what">Université Paris-Est Créteil (UPEC), Paris, France<span class="sub">Host: Raphaël Danchin. Funded by the FPI fellowship.</span></p></li>
+    <li><span class="when">Feb–Mar 2027</span><p class="what">Carnegie Mellon University (CMU), Pittsburgh, USA<span class="tag" data-until="2027-01-31">upcoming</span><span class="sub">Host: Ian Tice.</span></p></li>
+    <li><span class="when">Apr–Jul 2026</span><p class="what">Université Paris-Est Créteil (UPEC), Paris, France<span class="sub">Host: Raphaël Danchin.</span></p></li>
     <li><span class="when">Oct–Nov 2024</span><p class="what">Institute for Advanced Study (IAS), Princeton, USA<span class="sub">Host: Francisco Gancedo.</span></p></li>
   </ul>
 </section>
@@ -204,6 +205,9 @@ footer address{font-style:normal;line-height:1.7}
 </footer>
 </div>
 <script>
+// "upcoming" tags disappear the day after their data-until date (YYYY-MM-DD)
+(function(){var t=new Date(),d=t.getFullYear()+'-'+('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2);
+document.querySelectorAll('.tag[data-until]').forEach(function(e){if(d>e.dataset.until)e.remove();});})();
 document.querySelectorAll('a.em').forEach(function(a){a.href='mailto:'+a.dataset.u+'\u0040'+a.dataset.d;});
 </script>
 </body>
